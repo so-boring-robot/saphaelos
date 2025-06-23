@@ -1,17 +1,11 @@
-import icon from '../assets/windows-95-computer.png'
+import Application from './Application'
+import applicationsList from '../datas/ApplicationList'
 
 function Desktop(){
     return(
     <div className="flex-1 relative p-4">
-        <div className="absolute top-4 left-4 text-white text-sm">
-        <div className="flex flex-col items-center cursor-pointer">
-            <img
-            src={icon}
-            className="w-10 h-10 mb-1"
-            alt="Poste de travail"
-            />
-            <span className="bg-black bg-opacity-40 px-1">Poste de travail</span>
-        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6 text-white text-sm">
+            {applicationsList.map((app, index)=><Application key={`${app.name}-${index}`} name={app.name} icon={app.icon}/>)}
         </div>
     </div>
     )

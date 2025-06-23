@@ -1,4 +1,3 @@
-import logo from '../assets/logo_placeholder.png';
 import '../styles/index.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Fragment } from 'react/jsx-runtime';
