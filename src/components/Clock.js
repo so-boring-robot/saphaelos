@@ -1,6 +1,17 @@
+import { useState, useEffect } from "react";
+
 function Clock(){
+    const [time, setTime] = useState(new Date());
+    useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    
+    return () => clearInterval(intervalId); // nettoyage à la désactivation
+  }, []);
+
     return(
-        <div className="text-xs text-gray-800">{new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+        <div className="text-xs text-gray-800">{time.toLocaleTimeString()}</div>
     )
 }
 
