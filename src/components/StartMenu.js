@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-function StartMenu(){
+function StartMenu({setVisible}){
     const [menuVisible, setMenuVisible] = useState(false)
       const menuRef = useRef(null)
       const buttonRef = useRef(null)
@@ -36,13 +36,13 @@ function StartMenu(){
             className="absolute bottom-10 left-2 bg-gray-200 border win95-border text-sm menu z-10"
           >
             <ul className="p-1">
-              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer">
+              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={() => setVisible(true)}>
                 Programmes
               </li>
-              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer">
+              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={() => setVisible(true)}>
                 Paramètres
               </li>
-              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer">
+              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={() => setVisible(true)}>
                 Arrêter
               </li>
             </ul>
