@@ -8,8 +8,8 @@ import Window from './Window'
 
 
 function App() {
-  const [isVisible, setVisible] = useState(true) // file explorer
-
+  const [isVisible, setVisible] = useState(false) // file explorer
+  const [taskIsVisible, setTaskIsVisible] = useState(false)
   return (
     <Fragment>
       <HelmetProvider>
@@ -20,9 +20,9 @@ function App() {
     </HelmetProvider>
     
     <div className="bg-[#008080] font-mono h-screen flex flex-col">
-      <Desktop setVisible={setVisible}/>
-      <Taskbar setVisible={setVisible}/>
-      {isVisible && <Window setVisible={setVisible}/>}
+      <Desktop setVisible={setVisible} setTaskIsVisible={setTaskIsVisible}/>
+      <Taskbar setVisible={setVisible} setTaskIsVisible={setTaskIsVisible} taskIsVisible={taskIsVisible}/>
+      {isVisible && <Window setVisible={setVisible} setTaskIsVisible={setTaskIsVisible}/>}
     </div>
   </Fragment>
   );

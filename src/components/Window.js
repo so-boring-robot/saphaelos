@@ -1,7 +1,7 @@
 import '../styles/Window.css'
 import {useEffect, useState, useRef} from 'react';
 
-function Window({setVisible}){
+function Window({setVisible, setTaskIsVisible}){
     const windowRef = useRef(null);
     const [position, setPosition] = useState({ x: 100, y: 100 }); // Position initiale
     const [dragging, setDragging] = useState(false);
@@ -11,8 +11,8 @@ function Window({setVisible}){
         function handleMouseMove(e) {
         if (dragging) {
             setPosition({
-            x: e.clientX - offset.current.x,
-            y: e.clientY - offset.current.y,
+            x: Math.max(0, Math.min(e.clientX - offset.current.x, window.innerWidth - windowRef.current.offsetWidth)),
+            y: Math.max(0, Math.min(e.clientY - offset.current.y, window.innerHeight - windowRef.current.offsetHeight)),
             });
         }
         }
@@ -39,15 +39,20 @@ function Window({setVisible}){
         };
         setDragging(true);
     }
+
+    function handleQuitWindow(){
+        setVisible(false)
+        setTaskIsVisible(false)
+    }
     
     return (
-        <div ref={windowRef} style={{ left: position.x, top: position.y }} className="absolute w-[700px] win95-border text-sm text-black">
+        <div ref={windowRef} style={{ left: position.x, top: position.y }} className="absolute max-w-full w-[90vw] md:w-[700px] win95-border text-sm text-black">
             <div className="win95-titlebar flex justify-between items-center cursor-move" onMouseDown={handleMouseDown}>
                 <span>Explorateur Windows</span>
                 <div className="flex gap-1">
-                <button className="win95-button w-6 h-6">_</button>
+                <button className="win95-button w-6 h-6" onClick={()=>setVisible(false)}>_</button>
                 <button className="win95-button w-6 h-6">□</button>
-                <button className="win95-button w-6 h-6" onClick={() => setVisible(false)}>X</button>
+                <button className="win95-button w-6 h-6" onClick={handleQuitWindow}>X</button>
                 </div>
             </div>
 

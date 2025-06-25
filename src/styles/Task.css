@@ -1,0 +1,7 @@
+.task-color{
+    border: 2px solid;
+    border-color: white black black white;
+    box-shadow:
+        inset -2px -2px 0 #808080,
+        inset 2px 2px 0 #fff;
+}
