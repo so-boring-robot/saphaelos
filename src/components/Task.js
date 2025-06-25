@@ -10,7 +10,7 @@ function Task({name, windows, updateWindows}){
             updateWindows([...windowsFiltered, {'name':name, 'visibility':true}])
         }
     }
-    return <div className="flex flex-1 mx-1 px-2 bg-gray-200 px-3 py-1 task-color truncate" onClick={() => handleWindow(name)}>Generic application</div>
+    return <div className="flex mx-1 px-2 bg-gray-200 px-3 py-1 task-color truncate" onClick={() => handleWindow(name)}>{name}</div>
 }
 
 export default Task
