@@ -8,8 +8,7 @@ import Window from './Window'
 
 
 function App() {
-  const [isVisible, setVisible] = useState(false) // file explorer
-  const [taskIsVisible, setTaskIsVisible] = useState(false)
+  const [windows, updateWindows] = useState([])
   return (
     <Fragment>
       <HelmetProvider>
@@ -20,9 +19,14 @@ function App() {
     </HelmetProvider>
     
     <div className="bg-[#008080] font-mono h-screen flex flex-col">
-      <Desktop setVisible={setVisible} setTaskIsVisible={setTaskIsVisible}/>
-      <Taskbar setVisible={setVisible} setTaskIsVisible={setTaskIsVisible} taskIsVisible={taskIsVisible}/>
-      {isVisible && <Window setVisible={setVisible} setTaskIsVisible={setTaskIsVisible}/>}
+      <Desktop windows={windows} updateWindows={updateWindows}/>
+      <Taskbar windows={windows} updateWindows={updateWindows}/>
+      {windows.map((wind, index) =>
+        (wind.visibility && (
+          <Window key={`${wind.name}-${index}`} name={wind.name} windows={windows} updateWindows={updateWindows}
+          />
+        ))
+      )}
     </div>
   </Fragment>
   );

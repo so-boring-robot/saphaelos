@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import icon from '../assets/logo_placeholder.png'
 
-function StartMenu({setVisible, setTaskIsVisible}){
+function StartMenu({updateWindows}){
     const [menuVisible, setMenuVisible] = useState(false)
       const menuRef = useRef(null)
       const buttonRef = useRef(null)
@@ -22,8 +22,7 @@ function StartMenu({setVisible, setTaskIsVisible}){
       }, [])
 
       function handleWindow(){
-        setVisible(true)
-        setTaskIsVisible(true)
+        console.log("Ok")
       }
 
     return(
