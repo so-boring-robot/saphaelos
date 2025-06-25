@@ -40,12 +40,12 @@ function Window({ name, windows, updateWindows }) {
     setDragging(true);
   }
 
-  function handleReduceWindow() {
-    const windowsFiltered = windows.filter((wind) => wind.name !== name);
-    updateWindows([...windowsFiltered, { name: name, isVisible: false }]);
+  function handleReduceWindow(name) {
+    const updated = windows.map((wind) => wind.name===name ? {...wind, 'visibility':!wind.visibility} : wind )
+    updateWindows(updated);
   }
 
-  function handleQuitWindow() {
+  function handleQuitWindow(name) {
     const windowsFiltered = windows.filter((wind) => wind.name !== name);
     updateWindows([...windowsFiltered]);
   }
@@ -59,9 +59,9 @@ function Window({ name, windows, updateWindows }) {
       <div className="win95-titlebar flex justify-between items-center cursor-move px-2" onMouseDown={handleMouseDown}>
         <span>{name}</span>
         <div className="flex gap-1">
-          <button className="win95-button w-6 h-6" onClick={handleReduceWindow}>_</button>
+          <button className="win95-button w-6 h-6" onClick={() => handleReduceWindow(name)}>_</button>
           <button className="win95-button w-6 h-6" onClick={handleToggleMaximize}>□</button>
-          <button className="win95-button w-6 h-6" onClick={handleQuitWindow}>X</button>
+          <button className="win95-button w-6 h-6" onClick={() => handleQuitWindow(name)}>X</button>
         </div>
       </div>
 

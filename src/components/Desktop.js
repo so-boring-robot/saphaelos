@@ -4,10 +4,11 @@ import applicationsList from '../datas/ApplicationList'
 function Desktop({windows, updateWindows}){
 
     function handleWindow(name){
+        
         const alreadyExist = windows.find((wind) => wind.name === name)
         if(alreadyExist){
-            const windowsFiltered = windows.filter((wind) => wind.name!==name)
-            updateWindows([...windowsFiltered, {'name':name, 'visibility':true}])
+            const updated = windows.map((wind) => wind.name===name ? {...wind, 'visibility':true} : wind )
+            updateWindows(updated)
         }
         else{
             updateWindows([...windows, {'name': name, 'visibility': true}])
