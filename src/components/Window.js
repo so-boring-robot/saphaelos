@@ -1,7 +1,7 @@
 import '../styles/Window.css'
 import { useEffect, useState, useRef } from 'react';
 import FileExplorer from './FileExplorer'
-import Internet from './Internet'
+import WebBrowser from './WebBrowser'
 import GoobleBrome from './GoobleBrome';
 
 function Window({ name, windows, updateWindows }) {
@@ -62,7 +62,7 @@ function Window({ name, windows, updateWindows }) {
       case "Poste de travail":
         return <FileExplorer/>
       case "Fireracoon":
-        return <Internet/>
+        return <WebBrowser/>
       case "Gooble Brome":
         return <GoobleBrome/>
       default:
