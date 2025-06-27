@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import icon from '../assets/logo_placeholder.png'
 
-function StartMenu({updateWindows}){
+function StartMenu({updateWindows, updateBSOD}){
     const [menuVisible, setMenuVisible] = useState(false)
       const menuRef = useRef(null)
       const buttonRef = useRef(null)
@@ -44,7 +44,7 @@ function StartMenu({updateWindows}){
               <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={handleWindow}>
                 Paramètres
               </li>
-              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={handleWindow}>
+              <li className="hover:bg-blue-600 hover:text-white px-2 py-1 cursor-pointer" onClick={() => updateBSOD(true)}>
                 Arrêter
               </li>
             </ul>
