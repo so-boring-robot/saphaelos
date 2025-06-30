@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import FileExplorer from './FileExplorer'
 import WebBrowser from './WebBrowser'
 import GoobleBrome from './GoobleBrome';
+import Profil from './Profil'
 
 function Window({ name, windows, updateWindows }) {
   const windowRef = useRef(null);
@@ -65,6 +66,8 @@ function Window({ name, windows, updateWindows }) {
         return <WebBrowser/>
       case "Gooble Brome":
         return <GoobleBrome/>
+      case "Profil":
+        return <Profil/>
       default:
         return <></>
     }
@@ -73,7 +76,7 @@ function Window({ name, windows, updateWindows }) {
   return (
     <div ref={windowRef} style={maximized ? { left: 0, top: 0, width: '100vw', height: 'calc(100vh - 2.5rem)' } : { left: position.x, top: position.y, height: '400px' }} className={`absolute flex flex-col ${maximized ? '' : 'w-[90vw] md:w-[700px]'} win95-border text-sm text-black`}>
       <div className="win95-titlebar flex justify-between items-center cursor-move px-2" onMouseDown={handleMouseDown}>
-        <span>{name}</span>
+        <span>{name}.exe</span>
         <div className="flex gap-1">
           <button className="win95-button w-6 h-6" onClick={() => handleReduceWindow(name)}>_</button>
           <button className="win95-button w-6 h-6" onClick={handleToggleMaximize}>□</button>

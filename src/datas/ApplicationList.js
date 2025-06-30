@@ -2,6 +2,7 @@ import computer from '../assets/windows-95-computer.png'
 import folder from '../assets/windows-95-folder.png'
 import fireracoon from '../assets/fireracoon.png'
 import goobleBrome from '../assets/goobleBrome.png'
+import profil from '../assets/profil.png'
 export const applicationsList = [
 	{
 		name: 'Poste de travail',
@@ -14,6 +15,10 @@ export const applicationsList = [
 	{
 		name: 'Gooble Brome',
 		icon : goobleBrome,
+	},
+	{
+		name: 'Profil',
+		icon : profil
 	},
 	{
 		name: 'Top Secret',
