@@ -4,6 +4,7 @@ import FileExplorer from './FileExplorer'
 import WebBrowser from './WebBrowser'
 import GoobleBrome from './GoobleBrome';
 import Profil from './Profil'
+import Settings from './Settings'
 
 function Window({ name, windows, updateWindows }) {
   const windowRef = useRef(null);
@@ -68,6 +69,8 @@ function Window({ name, windows, updateWindows }) {
         return <GoobleBrome/>
       case "Profil":
         return <Profil/>
+      case "Paramètres":
+        return <Settings/>
       default:
         return <></>
     }

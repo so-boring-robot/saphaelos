@@ -1,5 +1,6 @@
 import moi from '../assets/me.png'
 import { useState } from 'react'
+import {skills, qualifications, projects} from '../datas/Profil.js' 
 
 function Profil() {
   const [activeCell, setActiveCell] = useState(0)
@@ -32,82 +33,61 @@ function Profil() {
             </p>
             </>
       case 1:
-  return (
-    <div className="grid grid-cols-2 gap-2">
-      {[
-        { title: '🧠 Logique & Algorithmie', desc: 'Résolution de problèmes, structures de données, et un amour certain pour les casse-têtes.' },
-        { title: '🌐 Développement Web', desc: 'HTML, CSS, JavaScript, React... et une passion pour rendre le web un peu plus joli (ou bizarre).' },
-        { title: '🛠️ DevOps & Automatisation', desc: 'Scripts bash, CI/CD, Docker... parce que tout ce qui peut être automatisé doit l’être.' },
-        { title: '🧪 Tests & Qualité', desc: 'Unitaires, intégration, TDD... pour éviter les bugs du vendredi soir (aucun déploiement le vendredi pour rendre le monde un peu meilleur).' },
-        { title: '📦 Gestion de projet', desc: 'Agile, Scrum, Trello, Notion... ou juste des post-its et beaucoup de chocolat chaud.' },
-        { title: '🧩 Curiosité technique', desc: 'Reverse engineering, bidouilles système, et exploration des abysses numériques.' }
-      ].map((skill, index) => (
-        <div key={index} className="border border-gray-400 p-2 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080]">
-          <h4 className="font-bold mb-1">{skill.title}</h4>
-          <p>{skill.desc}</p>
-        </div>
-      ))}
-    </div>
-      )
+        return (
+          <div className="grid grid-cols-2 gap-2">
+              {skills.map((skill, index) => (
+              <div key={index} className="border border-gray-400 p-2 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080]">
+                <h4 className="font-bold mb-1">{skill.title}</h4>
+                <p>{skill.desc}</p>
+              </div>
+            ))}
+          </div>
+            )
 
       case 2:
-  return (
-    <div className="space-y-4">
-      {[
-        { title: '🧠 Master - Ingénierie de l\'intelligence artificielle', desc: 'Collecte, Analyse et Traitement des données, base de l\'IA, développement d\'IA`,...' },
-        { title: '🌐 Licence - Système embarqué', desc: 'Base de l\'informatique, historique des système embarqué, gestion des système embarqué,...' },
-        { title: '🛠️ Licence - Gestion de projet', desc: 'Base de la gestion de projet...' },
-        { title: '🧪 DUT Informatique', desc: 'Base de l\'informatique : Langage de programmation, logique, base de données, ...' },
-      ].map((skill, index) => (
-        <div className="border border-gray-400 p-3 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080]">
-          <h4 className="font-bold mb-1">📁{skill.title}</h4>
-          <p>
-            {skill.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  )
-
-  case 3:
-  const projects = [
-    { name: '📁 ISAR (Il s\'appelle revient)', type: 'Application web', desc: 'Application web de gestion des emprunts et des stocks.', specs: ['HTML', 'CSS', 'Django', 'Python', 'JQuery', 'MySQL', 'Bootstrap', 'Apache2'] },
-    { name: '📄 LDAPInterface', type: 'Application web', desc: 'Application web de gestion d\'annuaire LDAP', specs: ['OpenLDAP', 'Django', 'Python', 'HTML', 'CSS', 'Apache2'] },
-    { name: '📁 SaphaelOS', type: 'Application Web', desc: 'Prototype d’OS fictif en interface web. Navigation façon Windows 95.', specs: ['React', 'JavaScript', 'HTML', 'CSS', 'TailWind'] },
-    { name: '📁 Bras robotique', type: 'Application logiciel', desc: 'Corpus d\'algorithme permettant à un bras robotique de se mouvoir dans un environnement comprenant des obstacles', specs: ['Python', 'RaspberryPi 3B/4', 'Servo Moteur', 'Caméra', 'Stéréovision'] },
-    { name: '📄 Déploiement massif', type: 'Corpus d\'applications', desc: 'Un corpus d\'outil permettant de déployer massivement un système d\'exploitation ainsi qu\'une liste d\'une centaines de logiciels sur plus de 400 ordinateurs', specs: ['FOG', 'Ansible', 'Semaphore', 'DHCP'] }
-  ]
-
-  return (
-    <div className="space-y-2">
-      {projects.map((proj, index) => (
-        <div key={index}>
-          <div
-            onClick={() => setSelectedProject(selectedProject === index ? null : index)}
-            className="border border-gray-400 p-3 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080] hover:bg-[#c0c0c0] cursor-pointer"
-          >
-            <h4 className="font-bold mb-1">{proj.name}</h4>
-            <p className="italic text-xs mb-1">{proj.type}</p>
-            <p>{proj.desc.slice(0, 60)}...</p>
-            <div>
-              {proj.specs.map((spec, index) => (
-                <span key={`${spec}-${index}`} class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset mx-1">{spec}</span>    
-              ))}
-            </div>
+        return (
+          <div className="space-y-4">
+            {qualifications.map((skill, index) => (
+              <div className="border border-gray-400 p-3 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080]">
+                <h4 className="font-bold mb-1">📁{skill.title}</h4>
+                <p>
+                  {skill.desc}
+                </p>
+              </div>
+            ))}
           </div>
+        )
 
-          {selectedProject === index && (
-            <div className="mt-1 ml-4 mr-2 border border-gray-400 p-3 bg-[#eaeaea] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080] text-sm">
-              <p><b>Description complète :</b></p>
-              <p>{proj.desc}</p>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  )
+      case 3:
+        return (
+          <div className="space-y-2">
+            {projects.map((proj, index) => (
+              <div key={index}>
+                <div
+                  onClick={() => setSelectedProject(selectedProject === index ? null : index)}
+                  className="border border-gray-400 p-3 bg-[#dcdcdc] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080] hover:bg-[#c0c0c0] cursor-pointer"
+                >
+                  <h4 className="font-bold mb-1">{proj.name}</h4>
+                  <p className="italic text-xs mb-1">{proj.type}</p>
+                  <p>{proj.desc.slice(0, 60)}...</p>
+                  <div>
+                    {proj.specs.map((spec, index) => (
+                      <span key={`${spec}-${index}`} class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset mx-1">{spec}</span>    
+                    ))}
+                  </div>
+                </div>
 
-
+                {selectedProject === index && (
+                  <div className="mt-1 ml-4 mr-2 border border-gray-400 p-3 bg-[#eaeaea] shadow-[inset_-1px_-1px_0_#fff,inset_1px_1px_0_#808080] text-sm">
+                    <p><b>Description complète :</b></p>
+                    <p>{proj.desc}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )
+        
       default:
         return <></>
     }

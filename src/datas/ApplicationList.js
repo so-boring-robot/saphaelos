@@ -3,6 +3,8 @@ import folder from '../assets/windows-95-folder.png'
 import fireracoon from '../assets/fireracoon.png'
 import goobleBrome from '../assets/goobleBrome.png'
 import profil from '../assets/profil.png'
+import settings from '../assets/settings.png'
+
 export const applicationsList = [
 	{
 		name: 'Poste de travail',
@@ -20,6 +22,11 @@ export const applicationsList = [
 		name: 'Profil',
 		icon : profil
 	},
+	{
+		name: 'Paramètres',
+		icon : settings
+	},
+
 	{
 		name: 'Top Secret',
 		icon : folder,
